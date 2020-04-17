@@ -1,0 +1,31 @@
+img {
+    border: 7px solid teal;
+   /* Teal Border */
+    border-radius: 4px;
+    /* Rounded border */
+    width: 350px;
+    /* Set a small width */
+    padding: 2px;
+}
+
+Main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    /* Positions Products */
+
+}
+
+body {
+ background-image: url(./images/BackdropDisplay.jpg);
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+
