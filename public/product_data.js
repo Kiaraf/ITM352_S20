@@ -1,4 +1,4 @@
-// Format used in Lab13
+// Format used in my Lab13
 products =
 [
     {
