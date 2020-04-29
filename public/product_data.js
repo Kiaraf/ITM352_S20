@@ -1,3 +1,5 @@
+// Author: Kiara Furutani 
+// This file contains the details for the products as a reference for the Shopping and Invoice Pages  
 // Format used in my Lab13
 products =
 [
