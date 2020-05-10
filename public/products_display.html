@@ -38,12 +38,13 @@
 
 <header>
     <div>
-        <a href="index.html">Back to Homepage</a>
+        <h3><a href="index.html">Home</a></h3>
         <h1>Choose a Succulent Type!</h1>
-        
+
         <h3> NOTE: All plants are sold in sets of 4 </h3>
     </div>
 </header>
+
 <body>
     <form name="quantity_form" action="/process_form" method="POST">
         <main>
@@ -51,7 +52,7 @@
                 // Generating variables for items --> Taken from Assignment 1 example
                 for (i = 0; i < products.length; i++) {
                     document.write(` 
-              <section class="SucculentShop">
+                    <section class="SucculentShop">
               <h2>${products[i]["succulent"]}</h2>
               <p>\$${products[i]["price"]}</p>
     <img class="img" src="${products[i]["image"]}">
@@ -59,9 +60,9 @@
               <label id="quantity"}">Quantity</label>
              
               <input id="qty_textbox_message" type="text" placeholder="Enter a quantity" name="quantity${i}" onkeyup="checkQuantityTextbox(this);"> 
-              
-              
+            
               </section>
+              
             `);
                 }
             </script>

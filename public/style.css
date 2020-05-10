@@ -10,7 +10,6 @@ img {
     /* Set a small width */
     padding: 2px;
 }
-
 Main {
     display: flex;
     flex-flow: row wrap;
@@ -29,6 +28,19 @@ h1 {
 
 h3 {
     text-align: center;
+}
+
+div.headhome {
+    size: 10px;
+}
+
+/* Taken from stackoverflow.com
+Changes color before and after click */
+a:active {
+    color: rgb(54, 52, 52);
+}
+a:visited {
+    color:rgb(161, 68, 104);
 }
 
 

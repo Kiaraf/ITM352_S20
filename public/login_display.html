@@ -1,6 +1,8 @@
 <!-- Author: Kiara Furutani
 	This file contains the code for the login page -->
 
+	  
+
 <!-- HTML format taken from https://codepen.io/colorlib/pen/rxddKy and modified -->
 <!DOCTYPE html>
 <html lang="en">
@@ -16,12 +18,12 @@
 	<div class="login-page">
 		<div class="form">
 		
-		  <form class="login-form">
-			<input type="text" placeholder="username"/>
+		  <form action="process_login" class="login-form" name="login_form" method="POST">
+			<input type="text" name="username" placeholder="username"/>
 			<div id="usernamelabel"></div>
-			<input type="password" placeholder="password"/>
+			<input type="password" name="password" placeholder="password"/>
 			<div id="passwordlabel"></div>
-			<button>login</button>
+			<a href="./invoice_display.html"><button>login</button></a>
 			<!-- Link to go to registration page -->
 			<p class="message">New user? Create an account<a href="./registration_display.html"> here</a></p>
 		  </form>

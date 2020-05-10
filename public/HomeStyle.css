@@ -3,9 +3,15 @@ This file contains style elements for the Home Page */
 
 h1 {
     text-align: center;
+
 }
 
 h2 {
     text-align: center;
+}
+
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
