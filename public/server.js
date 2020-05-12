@@ -16,7 +16,7 @@ app.all('*', function (request, response, next) {
 });
 app.use(myParser.urlencoded({ extended: true })); //Server-side processing
 app.post("/process_form", function (request, response) {
-    process_quantity_form(request.body, response);
+    quantity_form(request.body, response);
 });
 
 app.use(express.static('./public'));
@@ -31,7 +31,7 @@ function isNonNegInt(q, returnErrors = false) {
 }
 
 
-function process_quantity_form(POST, response) {
+function quantity_form(POST, response) {
     if (typeof POST['purchase_submit_button'] != 'undefined') {
         // Check if the quantities are valid, if so, send to the invoice, if not, give an error
         var qString = queryString.stringify(POST);
@@ -60,7 +60,7 @@ function process_quantity_form(POST, response) {
                 // check if username exists in reg data. If true, check if password matches
                 if(typeof userdata[login_username] != 'undefined') {
                     var user_info = userdata[login_username];
-                    // check if password matches username
+                    // check if password matches username from JSON
                     if(user_info["password"] != request.body["password"]) {
                           err_str = `bad_password`;
                     } else {
