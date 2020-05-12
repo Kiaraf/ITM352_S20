@@ -3,15 +3,17 @@ This file contains style elements for the Home Page */
 
 h1 {
     text-align: center;
-
+/* Centers shop name text */
 }
 
 h2 {
     text-align: center;
 }
+/* Centers instructional text */
 
 body {
     background-repeat: no-repeat;
     background-size: cover;
+/* Sets background image to fit entire screen with no repeat */
 }
 

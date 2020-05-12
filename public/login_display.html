@@ -17,14 +17,15 @@
 <body>
 	<div class="login-page">
 		<div class="form">
-		
+		<!-- creates form for users input login information to continue to invoice -->
 		  <form action="process_login" class="login-form" name="login_form" method="POST">
 			<input type="text" name="username" placeholder="username"/>
 			<div id="usernamelabel"></div>
 			<input type="password" name="password" placeholder="password"/>
 			<div id="passwordlabel"></div>
+			<!-- Sets link to go from login page to invoice page if account exists -->
 			<a href="./invoice_display.html"><button>login</button></a>
-			<!-- Link to go to registration page -->
+			<!-- Sets link to go from login page to registration page -->
 			<p class="message">New user? Create an account<a href="./registration_display.html"> here</a></p>
 		  </form>
 		</div>
