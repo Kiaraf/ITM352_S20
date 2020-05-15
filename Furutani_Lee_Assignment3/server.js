@@ -1,4 +1,4 @@
-// Author: Kiara Furutani 
+// Author: Kiara Furutani and Angela Lee
 // This file contains the code for the server to run the different pages
 
 // Code format from Lab 13 with assistance from Kobe Dait
@@ -14,6 +14,20 @@ app.all('*', function (request, response, next) {
     console.log(request.method + ' to ' + request.path);
     next();
 });
+
+// Code is taken from https://nodemailer.com/message/
+var message = {
+    from: 'Nodemailer <angelal8@hawaii.edu>',
+    to: 'Nodemailer <${username.email}>',
+    subject: 'Succulent Receipt',
+    text: 'Thank you for shopping with us!',
+    html: '<p>For clients that do not support AMP4EMAIL or amp'
+    ,headers: {
+        'My-Custom-Header': 'header value'
+    },
+    date: new Date('2000-01-01 00:00:00')
+};
+
 app.use(myParser.urlencoded({ extended: true })); //Server-side processing
 app.post("/process_form", function (request, response) {
     quantity_form(request.body, response);
@@ -21,6 +35,10 @@ app.post("/process_form", function (request, response) {
 
 app.use(express.static('./public'));
 app.listen(8080, () => console.log(`listening on port 8080`));
+
+
+
+
 
 function isNonNegInt(q, returnErrors = false) {
     errors = []; // assume no errors at first
@@ -69,10 +87,48 @@ function quantity_form(POST, response) {
                       return;
                     }
                     
-                } else {err_str="bad username"; // error message for bad username from my Lab 14
-            
+                } else { err_str="bad username"; // error message for bad username from my Lab 14
+
+                app.post("/check_login", function (request, response) {
+                    // Process login form POST and redirect to logged in page if ok, back to login page if not
+                    console.log(request.query);
+                    var err_str = "";
+                    var login_username = request.body["username"];
+                    // check if username exists in reg data. If so, check if password matches
+                    if (typeof userdata[login_username] != 'undefined') {
+                        var user_info = userdata[login_username];
+                        // check if password stored for username matches what user typed in
+                        if (user_info["password"] != request.body["password"]) {
+                            err_str = `bad_password`;
+                        } else {
+                            session.username = login_usernme;
+                            var theDate = Date().now();
+                            session.last_login_time = theDate;
+                            response.cookie('username', login_username, {maxAge: 5*1000});
+                            response.end(`${login_username} is logged in with data ${JSON.stringify(quantity_str)} on ${theDate}`);
+                            return;
+                        }
                 }
-                
+                app.post("/check_login", function (request, response) {
+                    // Process login form POST and redirect to logged in page if ok, back to login page if not
+                    console.log(request.query);
+                    var err_str = "";
+                    var login_username = request.body["username"];
+                    // check if username exists in reg data. If so, check if password matches
+                    if (typeof userdata[login_username] != 'undefined') {
+                        var user_info = userdata[login_username];
+                        // check if password stored for username matches what user typed in
+                        if (user_info["password"] != request.body["password"]) {
+                            err_str = `bad_password`;
+                        } else {
+                            session.username = login_usernme;
+                            var theDate = Date().now();
+                            session.last_login_time = theDate;
+                            response.cookie('username', login_username, {maxAge: 5*1000});
+                            response.end(`${login_username} is logged in with data ${JSON.stringify(quantity_str)} on ${theDate}`);
+                            return;
+                        }
+                }
                     request.query.err=err_str // detects if error
                     response.redirect('./login_display.html?'+ qs.stringify(request.query));
             });
@@ -89,6 +145,4 @@ function quantity_form(POST, response) {
             });
 
 
-        }
-    }
-    }};
+                })}})}}}}
